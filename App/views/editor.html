@@ -1,0 +1,23 @@
+﻿<section>
+    <div data-bind="with: paquete">
+        <h2>
+            <span>Editor:</span>
+            <span data-bind="html: description"></span>
+        </h2>
+    </div>
+
+    <ul id="tab-editor" class="nav nav-tabs" data-bind="foreach: tabs">
+        <li data-bind="css: { active: isActive }, click: $parent.selectedTab">            
+            <a href="#">
+                <i data-bind="css: iconClass"></i>
+                <span data-bind="text: caption"></span>
+            </a>
+        </li>
+    </ul>
+        
+    <div class="tab-content">
+        <!-- with cacheViews: true second tab loses bindings when revisiting tab -->
+        <!--ko compose: { area: 'editor', view: selectedTab().template, cacheViews: true } --><!--/ko-->        
+    </div>
+        
+</section>
